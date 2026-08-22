@@ -1,5 +1,6 @@
-const UserModel = require("../models/User.model");
-const Register = async (req, res) => {
+import { Request , Response } from "express";
+import UserModel from "../models/User.model";
+  export const Register = async (req :Request, res:Response) => {
   try {
     const { name, email, password, role } = req.body;
 
@@ -16,7 +17,7 @@ const Register = async (req, res) => {
       role: role === "driver" ? "driver" : "user",
     });
     await user.save();
-    const userResponse =user.toObject();
+    const userResponse:any =user.toObject();
     delete userResponse.password;
     return res.status(200).json({message:`vaild Register welcome to uber app`,user:userResponse})
   } catch (error) {
@@ -24,4 +25,3 @@ const Register = async (req, res) => {
     res.status(400).json({message:"there is problem in Register"})
   }
 };
-module.exports={Register}

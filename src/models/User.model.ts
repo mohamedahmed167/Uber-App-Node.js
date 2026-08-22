@@ -1,4 +1,4 @@
-const mongoose =require("mongoose")
+import mongoose from "mongoose"
 const userSchema=new mongoose.Schema({
   name:{type:String ,required:true ,trim:true},
   email:{type:String,required:true,trim:true ,unique:true,lowercase:true},
@@ -6,4 +6,4 @@ const userSchema=new mongoose.Schema({
   role:{type:String,enum:["user","driver"],default:"user"}
 },{timestamps:true})
 const UserModel=mongoose.model("user",userSchema)
-module.exports=UserModel
+export default UserModel
