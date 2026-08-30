@@ -45,7 +45,7 @@ export const Login = async (req: Request, res: Response) => {
     if (!email || !password) {
       return res.status(404).json({ message: "invaild email or password" });
     }
-    const user = await UserModel.findOne({ email });
+    const user = await UserModel.findOne({ email:email.trim().toLowerCase() });
     if (!user) {
       return res
         .status(404)
@@ -55,7 +55,15 @@ export const Login = async (req: Request, res: Response) => {
     if (!IsVaild) {
       return res.status(400).json({ message: "password is not matched" });
     }
-    return res.status(200).json({message:`hello ${user.name}`})
+
+    const userResponse =user.toObject() as{
+      name:string,
+      email:string,
+      password?:string,
+      role:string
+    };
+    delete userResponse.password;
+     res.status(200).json({ success: true, message: `User Logged in successfully`,user:userResponse });
   } catch (error) {
     console.log("there is error in login", error);
     res
