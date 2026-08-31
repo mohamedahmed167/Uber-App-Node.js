@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const driverSchema =new mongoose.Schema({
   userId:{
-    type:mongoose.Schema.ObjectId,
+    type:mongoose.Schema.Types.ObjectId,
     ref:"User",
     required:true,
     unique:true,
