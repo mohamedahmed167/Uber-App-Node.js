@@ -15,7 +15,7 @@ const rideSchema =new mongoose.Schema({
     required:true,
     trim:true
   },
-  dropofflocation:{
+  dropoffLocation:{
     type:String,
     required:true,
   },
@@ -41,8 +41,10 @@ const rideSchema =new mongoose.Schema({
     required:true,
     trim:true
   },
-  Phone:{
+  phone:{
     type:String,
     required:true,
   }
 },{timestamps:true})
+const RideModel = mongoose.model("Ride",rideSchema)
+export default RideModel

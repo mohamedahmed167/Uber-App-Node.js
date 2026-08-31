@@ -1,7 +1,8 @@
 import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import router from "./Router/uber.route";
+import uberRouter from "./Router/uber.route";
+import rideRouter  from "./Router/ride.route";
 
 dotenv.config();
 
@@ -12,8 +13,8 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(express.json());
 
-app.use("/api/uber", router);
-
+app.use("/api/uber", uberRouter);
+app.use("/api/rides", rideRouter);
 mongoose
   .connect(process.env.Monog_URI as string)
   .then(() => {
@@ -30,7 +31,3 @@ app.get("/", (req: Request, res: Response) => {
 app.listen(PORT, () => {
   console.log(`The server is Running and my PORT is ${PORT}`);
 });
-
-
-
-
