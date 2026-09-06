@@ -2,8 +2,24 @@ import { Request, Response } from "express";
 import UserModel from "../models/User.model";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import DriverModel from "../models/Driver.model";
+import {body,validationResult} from "express-validator"
+export const registerVaildation=[
+  body("name").trim().notEmpty().withMessage("name is required"),
+  body("email").trim().isEmail().withMessage("vaild email is required "),
+  body("password").isLength({min:6}).withMessage("password should be at least 6 characters long")
+]
+
+
+
 export const Register = async (req: Request, res: Response) => {
+  
+  const errors =validationResult(req);
+  if(!errors.isEmpty()){
+    return res.status(400).json({errors:errors.array()})
+  }
   try {
+
     const { name, email, password, role } = req.body;
     if (!name || typeof name != "string" || !name.trim()) {
       return res.status(400).json({
@@ -40,6 +56,14 @@ export const Register = async (req: Request, res: Response) => {
       role: role === "driver" ? "driver" : "user",
     });
     await user.save();
+    if(user.role =="driver"){
+      const driver =new DriverModel({
+        userId :user._id
+      })
+      await driver.save()
+    }
+
+
     const userResponse: any = user.toObject();
     delete userResponse.password;
     return res.status(200).json({
@@ -94,4 +118,3 @@ export const Login = async (req: Request, res: Response) => {
       .json({ message: "there is error in login please check it" });
   }
 };
-
