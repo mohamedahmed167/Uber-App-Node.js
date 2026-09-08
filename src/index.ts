@@ -3,6 +3,9 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import uberRouter from "./Router/uber.route";
 import rideRouter  from "./Router/ride.route";
+import swaggerUi from "swagger-ui-express";
+import swaggerSpec from "./swagger";
+
 
 dotenv.config();
 
@@ -12,7 +15,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(express.json());
-
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use("/api/uber", uberRouter);
 app.use("/api/rides", rideRouter);
 mongoose
@@ -28,6 +31,11 @@ app.get("/", (req: Request, res: Response) => {
   res.send("hello hashish");
 });
 
-app.listen(PORT, () => {
-  console.log(`The server is Running and my PORT is ${PORT}`);
+const server = app.listen(PORT, () => {
+  console.log(`SERVER IS LISTENING ON PORT ${PORT}`);
+  console.log("Server address:", server.address());
+});
+
+server.on("error", (error) => {
+  console.error("SERVER ERROR:", error);
 });

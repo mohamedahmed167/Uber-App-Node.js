@@ -6,7 +6,9 @@ import { body ,validationResult } from "express-validator";
 import { error } from "node:console";
 export const RideVaildation =[
   body("pickupLocation").trim().notEmpty().withMessage("pickupLocation is required"),
-  body("dropoffLocation").trim().notEmpty().withMessage("dropoffLocation is required")
+  body("dropoffLocation").trim().notEmpty().withMessage("dropoffLocation is required"),
+  body("name").trim().notEmpty().withMessage("name is required"),
+  body("phone").trim().notEmpty().withMessage("phone is required")
 ]
 
 

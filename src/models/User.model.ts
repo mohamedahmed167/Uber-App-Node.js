@@ -11,6 +11,9 @@ const userSchema = new mongoose.Schema(
     },
     password: { type: String, required: true, minlength: 6 },
     role: { type: String, enum: ["user", "driver"], default: "user" },
+    passwordResetOTP: String,
+    passwordResetOTPExpires: Number,
+    passwordResetOTPIsVaild: Boolean,
   },
   { timestamps: true },
 );
