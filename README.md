@@ -1,4 +1,4 @@
-# 🚗 RYVO — Ride Hailing Backend API
+# 🚗 Uber App — Ride Hailing Backend API
 
 RYVO is a **ride-hailing backend API** built with **Node.js, Express.js, TypeScript, and MongoDB**.
 
