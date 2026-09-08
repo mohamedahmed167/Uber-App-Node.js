@@ -5,7 +5,7 @@ import uberRouter from "./Router/uber.route";
 import rideRouter  from "./Router/ride.route";
 import swaggerUi from "swagger-ui-express";
 import swaggerSpec from "./swagger";
-
+import locationRouter from "./Router/location.route";
 
 dotenv.config();
 
@@ -18,6 +18,7 @@ app.use(express.json());
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use("/api/uber", uberRouter);
 app.use("/api/rides", rideRouter);
+app.use("/api/locations", locationRouter);
 mongoose
   .connect(process.env.Monog_URI as string)
   .then(() => {
