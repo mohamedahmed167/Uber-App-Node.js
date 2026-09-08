@@ -1,6 +1,6 @@
-# 🚗 Uber App — Ride Hailing Backend API
+# 🚗 RYVO — Ride Hailing Backend API
 
-uber is a **ride-hailing backend API** built with **Node.js, Express.js, TypeScript, and MongoDB**.
+RYVO is a **ride-hailing backend API** built with **Node.js, Express.js, TypeScript, and MongoDB**.
 
 The project provides the core backend functionality of a ride-hailing application, including user authentication, ride management, driver availability, location search, currency conversion, API validation, error handling, and interactive API documentation.
 
@@ -12,22 +12,22 @@ The project was developed to practice building a real-world backend application 
 
 ### 🔐 Authentication & Authorization
 
-- User registration and login
-- JWT-based authentication
-- Protected API routes
-- Password hashing using bcrypt
-- Authentication middleware
-- Secure handling of authenticated users
+* User registration and login
+* JWT-based authentication
+* Protected API routes
+* Password hashing using bcrypt
+* Authentication middleware
+* Secure handling of authenticated users
 
 ### 🚕 Ride Management
 
-- Create rides
-- Retrieve ride information
-- Manage ride status
-- Cancel rides
-- Assign drivers to rides
-- Manage driver availability
-- Passenger and driver ride workflows
+* Create rides
+* Retrieve ride information
+* Manage ride status
+* Cancel rides
+* Assign drivers to rides
+* Manage driver availability
+* Passenger and driver ride workflows
 
 ### 📍 Location Search
 
@@ -35,10 +35,10 @@ RYVO integrates with the **OpenStreetMap Nominatim API** to provide location sea
 
 The API can search for locations and return:
 
-- Location name
-- Latitude
-- Longitude
-- Location type
+* Location name
+* Latitude
+* Longitude
+* Location type
 
 Example:
 
@@ -96,12 +96,12 @@ convertedAmount = amount × exchangeRate
 
 ### 🛡️ Validation & Error Handling
 
-- Request validation
-- Authentication validation
-- Proper HTTP status codes
-- Structured API responses
-- Error handling for external API requests
-- Meaningful error messages
+* Request validation
+* Authentication validation
+* Proper HTTP status codes
+* Structured API responses
+* Error handling for external API requests
+* Meaningful error messages
 
 ### 📚 API Documentation
 
@@ -109,11 +109,11 @@ The project uses **Swagger / OpenAPI** to provide interactive API documentation.
 
 Swagger allows developers to:
 
-- Explore API endpoints
-- View request parameters
-- Test APIs directly
-- Test protected endpoints using Bearer tokens
-- Inspect API responses
+* Explore API endpoints
+* View request parameters
+* Test APIs directly
+* Test protected endpoints using Bearer tokens
+* Inspect API responses
 
 ---
 
@@ -354,8 +354,8 @@ http://localhost:3000
 
 The API was designed to be tested using:
 
-- **Swagger UI**
-- **Postman**
+* **Swagger UI**
+* **Postman**
 
 Swagger can be used for quickly testing documented endpoints, while Postman can be used to organize and test API requests.
 
@@ -367,12 +367,12 @@ Protected endpoints require a valid JWT token using Bearer Authentication.
 
 The application follows basic backend security practices including:
 
-- Password hashing with bcrypt
-- JWT-based authentication
-- Protected API routes
-- Environment variables for sensitive configuration
-- Authentication middleware
-- Input validation
+* Password hashing with bcrypt
+* JWT-based authentication
+* Protected API routes
+* Environment variables for sensitive configuration
+* Authentication middleware
+* Input validation
 
 Sensitive information such as database credentials and JWT secrets should never be committed to the repository.
 
@@ -382,20 +382,20 @@ Sensitive information such as database credentials and JWT secrets should never 
 
 The main goals of RYVO were to gain practical experience with:
 
-- RESTful API development
-- Node.js backend development
-- TypeScript
-- MongoDB and Mongoose
-- Authentication and authorization
-- JWT
-- Middleware architecture
-- Service-based architecture
-- Third-party API integration
-- Location services
-- Currency conversion
-- Error handling
-- API documentation
-- API testing
+* RESTful API development
+* Node.js backend development
+* TypeScript
+* MongoDB and Mongoose
+* Authentication and authorization
+* JWT
+* Middleware architecture
+* Service-based architecture
+* Third-party API integration
+* Location services
+* Currency conversion
+* Error handling
+* API documentation
+* API testing
 
 ---
 
@@ -403,16 +403,16 @@ The main goals of RYVO were to gain practical experience with:
 
 Possible future improvements include:
 
-- React frontend application
-- Complete frontend/backend integration
-- Online payment integration
-- Dynamic ride pricing
-- Distance-based fare calculation
-- Advanced driver matching
-- Automated testing
-- Dockerization
-- Cloud deployment
-- Production logging and monitoring
+* React frontend application
+* Complete frontend/backend integration
+* Online payment integration
+* Dynamic ride pricing
+* Distance-based fare calculation
+* Advanced driver matching
+* Automated testing
+* Dockerization
+* Cloud deployment
+* Production logging and monitoring
 
 ---
 
