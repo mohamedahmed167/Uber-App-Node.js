@@ -157,7 +157,7 @@ return res.status(200).json({
   }
 };
 
-export const restPassword =async (req:Request ,res:Response)=>{
+export const resetPassword =async (req:Request ,res:Response)=>{
   try{
     const {email ,OTP , newPassword } =req.body;
     if(!email || !OTP || !newPassword){
