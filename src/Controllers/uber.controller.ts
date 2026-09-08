@@ -156,3 +156,35 @@ return res.status(200).json({
  });
   }
 };
+
+export const restPassword =async (req:Request ,res:Response)=>{
+  try{
+    const {email ,OTP , newPassword } =req.body;
+    if(!email || !OTP || !newPassword){
+      return res
+        .status(400)
+        .json({ message: "email ,OTP and password are required" });
+    }
+    const user =await UserModel.findOne({email})
+    if(!user){
+      return res.status(400).json({message:"user not found"})
+    }
+    const hashedOTP =crypto.createHash("sha256").update(OTP).digest("hex")
+    if(user.passwordResetOTP !=hashedOTP){
+      return res.status(400).json({message:"invaild OTP"})
+    }
+    if(!user.passwordResetOTPExpires || user.passwordResetOTPExpires < Date.now()){
+      return res.status(400).json({ message: "OTP has expired" });
+    }
+    user.password =newPassword
+    await user.save()
+     return res.status(200).json({
+       success: true,
+       message: " password reset successfully",
+     });
+
+  }catch(error){
+console.log(error)
+return res.status(400).json({message:"error in reset password"})
+  }
+}
